@@ -1,0 +1,28 @@
+{
+    "listings": [
+        {
+            "name": "Blacephalon",
+            "price": "\u00a3149.00"
+        },
+        {
+            "name": "Stakataka",
+            "price": "\u00a3190.00"
+        },
+        {
+            "name": "Ivysaur",
+            "price": "\u00a387.00"
+        },
+        {
+            "name": "Venusaur",
+            "price": "\u00a3105.00"
+        },
+        {
+            "name": "Charmander",
+            "price": "\u00a348.00"
+        },
+        {
+            "name": "Charmeleon",
+            "price": "\u00a3165.00"
+        }
+    ]
+}

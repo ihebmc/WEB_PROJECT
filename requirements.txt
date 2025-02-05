@@ -1,0 +1,16 @@
+numpy
+pandas
+beautifulsoup4
+pydantic
+html2text
+tiktoken
+fake-useragent
+undetected-chromedriver
+python-dotenv
+selenium
+openai
+google-generativeai
+groq
+streamlit
+streamlit-tags
+xlsxwriter
