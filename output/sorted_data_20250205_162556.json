@@ -1,0 +1,304 @@
+{
+    "listings": [
+        {
+            "address": "Mergentheimer Str. 10, 97082 W\u00fcrzburg (Steinbachtal)",
+            "email": "null",
+            "location": "W\u00fcrzburg",
+            "title": "mayarchitekten GmbH"
+        },
+        {
+            "address": "Lossaustr. 4A, 96450 Coburg",
+            "email": "null",
+            "location": "Coburg",
+            "title": "ARCHI\nVIVA Architekten"
+        },
+        {
+            "address": "Rudolf-Hilferding-Str. 74, 60439 Frankfurt am Main (Niederursel)",
+            "email": "null",
+            "location": "Frankfurt am Main",
+            "title": "Architekt Horst Ehlers (baugewerblich)"
+        },
+        {
+            "address": "Am Ro\u00dfacker 9, 83022 Rosenheim (Innenstadt)",
+            "email": "null",
+            "location": "Rosenheim",
+            "title": "Behringer Architekten Rosenheim"
+        },
+        {
+            "address": "Esplanade 40, 20354 Hamburg (Neustadt)",
+            "email": "null",
+            "location": "Hamburg",
+            "title": "Dr. Peter K\u00f6rber Ingenieur- und Sachverst\u00e4ndigenb\u00fcro"
+        },
+        {
+            "address": "Martinstr. 32, 73728 Esslingen (Stadtmitte)",
+            "email": "null",
+            "location": "Esslingen",
+            "title": "FUCHS\nARCHITEKTEN planung/bauleitung/energieeffizienz"
+        },
+        {
+            "address": "Waiblingerstr. 3, 74074 Heilbronn",
+            "email": "null",
+            "location": "Heilbronn",
+            "title": "Planungsgruppe 71"
+        },
+        {
+            "address": "Hans-Mielich-Str. 28, 81543 M\u00fcnchen (Untergiesing)",
+            "email": "null",
+            "location": "M\u00fcnchen",
+            "title": "R2 Architekten"
+        },
+        {
+            "address": "Marktstr. 55, 88212 Ravensburg (Innenstadt)",
+            "email": "null",
+            "location": "Ravensburg",
+            "title": "Spahlinger Architektur"
+        },
+        {
+            "address": "Hindenburgstr. 60, 42853 Remscheid (Innen)",
+            "email": "null",
+            "location": "Remscheid",
+            "title": "B\u00f6ker\nArchitekten"
+        },
+        {
+            "address": "Luxemburger Str. 152, 50937 K\u00f6ln",
+            "email": "null",
+            "location": "K\u00f6ln",
+            "title": "Extra Architektur GmbH"
+        },
+        {
+            "address": "Sudetenstr. 23, 97616 Salz",
+            "email": "null",
+            "location": "Salz",
+            "title": "Kriesche Sven"
+        },
+        {
+            "address": "Aachener Str. 382, 50933 K\u00f6ln",
+            "email": "null",
+            "location": "K\u00f6ln",
+            "title": "Kraus Architekten + Ingenieure GmbH"
+        },
+        {
+            "address": "Gartenstr. 28 A, 40764 Langenfeld (Reusrath)",
+            "email": "null",
+            "location": "Langenfeld",
+            "title": "Architekturb\u00fcro D\u00fcster & Baumert"
+        },
+        {
+            "address": "Uerdinger Str. 239, 47800 Krefeld (Bockum)",
+            "email": "null",
+            "location": "Krefeld",
+            "title": "I W S Hochbau"
+        },
+        {
+            "address": "Kempener Allee 98, 47803 Krefeld (Kempener Feld/Baakeshof)",
+            "email": "null",
+            "location": "Krefeld",
+            "title": "Ingenieurb\u00fcro f\u00fcr Bauplanung & Baustatik Dipl.-Ing. Michael Koenen"
+        },
+        {
+            "address": "Speestr. 38, 40885 Ratingen (Lintorf)",
+            "email": "null",
+            "location": "Ratingen",
+            "title": "Peter Kommerscheidt"
+        },
+        {
+            "address": "Gartenstr. 17, 92637 Weiden (Rothenstadt)",
+            "email": "null",
+            "location": "Weiden",
+            "title": "Architekturb\u00fcro Christian Fiedler"
+        },
+        {
+            "address": "Paul-Esch-Str. 54, 47053 Duisburg (Hochfeld)",
+            "email": "null",
+            "location": "Duisburg",
+            "title": "Architektur & Baustatik Ucar-Bau"
+        },
+        {
+            "address": "Paul-Esch-Str. 54, 47053 Duisburg (Hochfeld)",
+            "email": "null",
+            "location": "Duisburg",
+            "title": "Architektur & Baustatik Ucar-Bau"
+        },
+        {
+            "address": "Buttst\u00e4dter Str. 24a, 99510 Apolda",
+            "email": "null",
+            "location": "Apolda",
+            "title": "Drewniok Heike"
+        },
+        {
+            "address": "Witzfeldstr. 97, 40667 Meerbusch (B\u00fcderich)",
+            "email": "null",
+            "location": "Meerbusch",
+            "title": "E2architekten | Eichmann+Eichmann PartG mbB"
+        },
+        {
+            "address": "Skalitzer Str. 138, 10999 Berlin (Kreuzberg)",
+            "email": "null",
+            "location": "Berlin",
+            "title": "LSW Leibenatus Wittayer Architekten Ingenieure Partnerschaft mbB"
+        },
+        {
+            "address": "Camburger Str. 181d, 99510 Apolda (Utenbach)",
+            "email": "null",
+            "location": "Apolda",
+            "title": "wettig\narchitektur + ingenieurgesellschaft mbH"
+        },
+        {
+            "address": "Auerhammerstr. 19, 08280 Aue (Aue)",
+            "email": "null",
+            "location": "Aue",
+            "title": "Dettmer Planungsb\u00fcro"
+        },
+        {
+            "address": "Alter Steinweg 5, 08056 Zwickau (Innenstadt)",
+            "email": "null",
+            "location": "Zwickau",
+            "title": "MKH\nARCHITEKTUR Gesellschaft von Architekten mbH"
+        },
+        {
+            "address": "Obere Hauptstr. 22, 09392 Auerbach",
+            "email": "null",
+            "location": "Auerbach",
+            "title": "MKH\nARCHITEKTUR Gesellschaft von Architekten mbH"
+        },
+        {
+            "address": "Riedenburger Str. 20, 93309 Kelheim",
+            "email": "null",
+            "location": "Kelheim",
+            "title": "Raith\nArchitekten GmbH"
+        },
+        {
+            "address": "Elisenstr. 7, 63739 Aschaffenburg (Innenstadt)",
+            "email": "null",
+            "location": "Aschaffenburg",
+            "title": "Schlauersbach Architekten"
+        },
+        {
+            "address": "M\u00f6rikestr. 7/1, 74226 Nordheim",
+            "email": "null",
+            "location": "Nordheim",
+            "title": "huschka_architekten freie Architekten PartGmbB"
+        },
+        {
+            "address": "Reutlinger Str. 49, 73728 Esslingen (Stadtmitte)",
+            "email": "null",
+            "location": "Esslingen",
+            "title": "THUEMMEL. Architektur. Energieberatung."
+        },
+        {
+            "address": "Wackersdorfer Str. 94, 92421 Schwandorf",
+            "email": "null",
+            "location": "Schwandorf",
+            "title": "Architekt Rodrigo Abarz\u00faa"
+        },
+        {
+            "address": "Marienburger Str. 62, 47443 Moers (Meerbeck)",
+            "email": "null",
+            "location": "Moers",
+            "title": "Bauplan \u00dcnal"
+        },
+        {
+            "address": "Kirschgartenstr. 1, 90419 N\u00fcrnberg (St Johannis)",
+            "email": "null",
+            "location": "N\u00fcrnberg",
+            "title": "HARTMUT A SCHR\u00d6DER Architekt Diplomingenieur"
+        },
+        {
+            "address": "Benno-Strau\u00df-Str. 7, 90763 F\u00fcrth (Weikershof)",
+            "email": "null",
+            "location": "F\u00fcrth",
+            "title": "PLANEREI"
+        },
+        {
+            "address": "Rittergasse 18, 45239 Essen (Werden)",
+            "email": "null",
+            "location": "Essen",
+            "title": "Architektur Grotegut Claudia"
+        },
+        {
+            "address": "Hilgardstr. 8, 67346 Speyer",
+            "email": "null",
+            "location": "Speyer",
+            "title": "Hauswert GmbH"
+        },
+        {
+            "address": "B\u00fcddingstr. 61, 58135 Hagen (Haspe)",
+            "email": "null",
+            "location": "Hagen",
+            "title": "Architektur + Stadtplanung Karla Thieser"
+        },
+        {
+            "address": "Ripshorster Str. 366, 45357 Essen (Dellwig)",
+            "email": "null",
+            "location": "Essen",
+            "title": "avantgarde Architektur + Design KenChiku"
+        },
+        {
+            "address": "Silvanerweg 16, 73235 Weilheim",
+            "email": "null",
+            "location": "Weilheim",
+            "title": "Eggstein Bertram"
+        },
+        {
+            "address": "Bielefelder Str. 18, 33378 Rheda-Wiedenbr\u00fcck (Wiedenbr\u00fcck)",
+            "email": "null",
+            "location": "Rheda-Wiedenbr\u00fcck",
+            "title": "K\u00f6ller Michaela Dipl.-Ing."
+        },
+        {
+            "address": "Albert-Schweitzer-Str. 1, 30880 Laatzen (Mitte)",
+            "email": "null",
+            "location": "Laatzen",
+            "title": "RHR Planungsgesellschaft mbH\nIngenieure - Architekten"
+        },
+        {
+            "address": "Rotenbergstr. 8, 70190 Stuttgart (Ost)",
+            "email": "null",
+            "location": "Stuttgart",
+            "title": "HWP\nPlanungsgesellschaft mbH"
+        },
+        {
+            "address": "Vor dem Lauch 15, 70567 Stuttgart (M\u00f6hringen)",
+            "email": "null",
+            "location": "Stuttgart",
+            "title": "IBS\nArchitektur- und Ingenieurb\u00fcro Schaff GmbH"
+        },
+        {
+            "address": "Bludenzer Str. 6, 70469 Stuttgart (Feuerbach)",
+            "email": "null",
+            "location": "Stuttgart",
+            "title": "Schwarz Architekten"
+        },
+        {
+            "address": "Ringstr. 21, 96271 Grub (Grub)",
+            "email": "null",
+            "location": "Grub",
+            "title": "lu:p\nArchitektur GmbH"
+        },
+        {
+            "address": "Richthofenstr. 6, 73079 S\u00fc\u00dfen",
+            "email": "null",
+            "location": "S\u00fc\u00dfen",
+            "title": "ARCHITEKTUR KELLER"
+        },
+        {
+            "address": "Rathausgasse 14, 97877 Wertheim",
+            "email": "null",
+            "location": "Wertheim",
+            "title": "Bannwarth & Ludwig Planungsb\u00fcro GmbH"
+        },
+        {
+            "address": "Neutorgraben 15, 90419 N\u00fcrnberg (St Johannis)",
+            "email": "null",
+            "location": "N\u00fcrnberg",
+            "title": "Herbst\nUlrich"
+        },
+        {
+            "address": "Rietzschkegrund 21, 01445 Radebeul",
+            "email": "null",
+            "location": "Radebeul",
+            "title": "ADER\nARCHITEKTEN"
+        }
+    ]
+}

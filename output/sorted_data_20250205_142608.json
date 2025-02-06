@@ -1,0 +1,19 @@
+{
+    "listings": [
+        {
+            "category": "Browser",
+            "name": "Working",
+            "number": "null"
+        },
+        {
+            "category": "Cloudflare",
+            "name": "Working",
+            "number": "null"
+        },
+        {
+            "category": "Host",
+            "name": "Error",
+            "number": "null"
+        }
+    ]
+}

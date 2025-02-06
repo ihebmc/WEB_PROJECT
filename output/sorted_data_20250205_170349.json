@@ -1,0 +1,104 @@
+{
+    "listings": [
+        {
+            "category": "Government & Public Services",
+            "location": "125 Rte de Bayonne, 31300 Toulouse, France",
+            "name": "Restaurant Les Marronniers"
+        },
+        {
+            "category": "Childcare and Day Care",
+            "location": "16 Rue de la Colombette, 31000 Toulouse, France",
+            "name": "Restaurant Le Rocher D'Olt"
+        },
+        {
+            "category": "Government & Public Services",
+            "location": "23 imp Maubec, 31300 Toulouse, France",
+            "name": "H\u00f4tel Restaurant Novotel Toulouse A\u00e9roport"
+        },
+        {
+            "category": "Bar",
+            "location": "14 Place des Pradettes, 31100 Toulouse, France",
+            "name": "Restaurant Les Palais de Jade"
+        },
+        {
+            "category": "Self Storage",
+            "location": "41 Rue R\u00e9publique, 31300 Toulouse, France",
+            "name": "Restaurant Punjab"
+        },
+        {
+            "category": "Self Storage",
+            "location": "26 Rue du Languedoc, 31000 Toulouse, France",
+            "name": "Restaurant Le Maroc"
+        },
+        {
+            "category": "Self Storage",
+            "location": "10 Place Victor Hugo, 31000 Toulouse, France",
+            "name": "Restaurant La Villa Tropezienne"
+        },
+        {
+            "category": "Bar",
+            "location": "262 Av de Lardenne, 31100 Toulouse, France",
+            "name": "Restaurant La Pergola"
+        },
+        {
+            "category": "Childcare and Day Care",
+            "location": "40 Rue du general Jean Compans, 31500 Toulouse, France",
+            "name": "Restaurant Paradis d'Asie Shanga\u00ef"
+        },
+        {
+            "category": "Self Storage",
+            "location": "33 Rue d'Embarthe, 31000 Toulouse, France",
+            "name": "Restaurant Le Bengale"
+        },
+        {
+            "category": "Bar",
+            "location": "48 Av Etienne Billi\u00e8res, 31300 Toulouse, France",
+            "name": "Restaurant Soleil d'Angkor"
+        },
+        {
+            "category": "Food and Beverages",
+            "location": "15 Rue du Taur, 31000 Toulouse, France",
+            "name": "Restaurant La Tassee"
+        },
+        {
+            "category": "Bar",
+            "location": "39 Rue de l'Industrie, 31000 Toulouse, France",
+            "name": "Restaurant Le Gandhi"
+        },
+        {
+            "category": "Self Storage",
+            "location": "26 Rue R\u00e9publique, 31300 Toulouse, France",
+            "name": "Restaurant Le Mayombe"
+        },
+        {
+            "category": "Food and Beverages",
+            "location": "13 Rue de l'Industrie, 31000 Toulouse, France",
+            "name": "Restaurant Le Bouchon Lyonnais"
+        },
+        {
+            "category": "Restaurant",
+            "location": "206-210 Route de Narbonne, 31400 Toulouse, France",
+            "name": "McDonald's"
+        },
+        {
+            "category": "Restaurant",
+            "location": "2 Avenue Marcel Dassault, 31500 Toulouse, France",
+            "name": "McDonald's "
+        },
+        {
+            "category": "Restaurant",
+            "location": "23 place du Capitole, 31000 Toulouse, France",
+            "name": "McDonald's"
+        },
+        {
+            "category": "Japanese Restaurant",
+            "location": "4-8 Rue de Lapeyrouse, 31000 Toulouse, France",
+            "name": "Sushi Shop"
+        },
+        {
+            "category": "Restaurant",
+            "location": "all\u00e9e du pr\u00e9sident Franklin Roosevelt, 31000 Toulouse, France",
+            "name": "McDonald's"
+        }
+    ]
+}

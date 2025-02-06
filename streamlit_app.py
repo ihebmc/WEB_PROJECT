@@ -17,14 +17,41 @@ st.title("ATLAS Web Scraper 🕸️")
 # Sidebar components
 st.sidebar.title("Web Scraper Settings")
 model_selection = st.sidebar.selectbox("Select Model", options=list(PRICING.keys()), index=0)
-url_input = st.sidebar.text_input("Enter URL")
+
+
+# Define URL components
+BASE_URL = "https://tupalo.com/en/search?"
+DEFAULT_CITY_ID = "2972315"
+
+# City ID input (optional)
+city_id = st.text_input("City ID (Optional)", value=DEFAULT_CITY_ID)
+
+# Page number input
+page_number = st.number_input("Enter Page Number", min_value=1, value=1, step=1)
+
+# Category input
+category = st.text_input("Enter Category (e.g., restaurant, dentist)", "")
+
+# Dynamically generate URL
+url_input = (f"{BASE_URL}city_id={city_id}&page={page_number}&q={category}&utf8=✓"
+             if category else "")
+
+# Display generated URL
+if url_input:
+    st.write("Generated URL:")
+    st.code(url_input, language="html")
+
+
+
+
+
 
 # Tags input specifically in the sidebar
 tags = st.sidebar.empty()  # Create an empty placeholder in the sidebar
 tags = st_tags_sidebar(
     label='Enter Fields to Extract:',
     text='Press enter to add a tag',
-    value=[],  # Default values if any
+    value=["name", "location", "number", "rating"],  # Default values if any
     suggestions=[],  # You can still offer suggestions, or keep it empty for complete freedom
     maxtags=-1,  # Set to -1 for unlimited tags
     key='tags_input'
@@ -39,13 +66,27 @@ fields = tags
 input_tokens = output_tokens = total_cost = 0  # Default values
 
 # Define the scraping function
-
+# url_input = st.text_input("Enter Full URL to Scrape",
+#                            placeholder="https://tupalo.com/en/search?city_id=2972315&page=1&q=restaurant&utf8=✓")
+#
 
 # Buttons to trigger scraping
 # Define the scraping function
 # Define the scraping function
 def perform_scrape():
+    # Validate URL before scraping
+    if not url_input:
+        st.error("Please enter a valid URL")
+        return None
+
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    with st.status("🔄 Scraping in progress...", expanded=True) as status:
+        status.write("Fetching webpage...")
+        try:
+            raw_html = fetch_html_selenium(url_input)
+        except Exception as e:
+            st.error(f"Error fetching URL: {e}")
+            return None
     with st.status("🔄 Scraping in progress...", expanded=True) as status:
         status.write("Fetching webpage...")
         raw_html = fetch_html_selenium(url_input)
@@ -76,6 +117,9 @@ def perform_scrape():
 # Handle single scrape button
 if 'perform_scrape' not in st.session_state:
     st.session_state['perform_scrape'] = False
+
+# Add URL input field
+# url_input = st.text_input("Enter URL to Scrape", placeholder="https://example.com")
 
 if st.sidebar.button("🔍 Start Scraping", type="primary"):
     with st.spinner('Please wait... Data is being scraped.'):
@@ -157,5 +201,9 @@ if st.session_state.get('perform_scrape'):
             mime="application/vnd.ms-excel"
         )
 # Ensure that these UI components are persistent
-if 'results' in st.session_state:
+if 'results' in st.session_state and st.session_state['results'] is not None:
     df, formatted_data, markdown, input_tokens, output_tokens, total_cost, timestamp = st.session_state['results']
+else:
+    st.warning("No scraping results available. Please enter a valid URL and start scraping.")
+    # Optionally, reset the session state
+    st.session_state['perform_scrape'] = False

@@ -1,0 +1,124 @@
+{
+    "listings": [
+        {
+            "location": "24 rue Lulli 13001 Marseille",
+            "name": "Primo Amore",
+            "number": "04 91 55 51 79",
+            "rating": "5"
+        },
+        {
+            "location": "6 rue Catalans 13007 Marseille",
+            "name": "Restaurant Michel",
+            "number": "04 91 52 64 22",
+            "rating": "5"
+        },
+        {
+            "location": "4 place G\u00e9n de Gaulle 13001 Marseille",
+            "name": "PRIMO AMORE II",
+            "number": "04 91 70 72 57",
+            "rating": "5"
+        },
+        {
+            "location": "Mourepiane Activit\u00e9s 2 467 chemin Littoral 13016 Marseille",
+            "name": "La V\u00e9randa",
+            "number": "04 91 69 36 60",
+            "rating": "5"
+        },
+        {
+            "location": "35 rue D\u00e9sir\u00e9 Pellaprat 13008 Marseille",
+            "name": "L'Auberge du Corsaire Chez Paul",
+            "number": "04 91 73 19 26",
+            "rating": "5"
+        },
+        {
+            "location": "140 rue Vallon des Auffes 13007 Marseille",
+            "name": "Restaurant Chez Fonfon",
+            "number": "04 91 52 14 38",
+            "rating": "7"
+        },
+        {
+            "location": "28 rue D\u00e9sir\u00e9 Pellaprat les Goudes 13008 Marseille",
+            "name": "L'espla\u00ef Du Grand Bar Des Goudes",
+            "number": "04 91 73 43 69",
+            "rating": "4.3"
+        },
+        {
+            "location": "Villa Massalia H\u00f4tel 17 place Louis Bonnefon 13008 Marseille",
+            "name": "Golden Tulip Villa Massalia",
+            "number": "04 91 72 90 17",
+            "rating": "4"
+        },
+        {
+            "location": "12 avenue Goumiers 13008 Marseille",
+            "name": "Le P'tit Jardin",
+            "number": "04 91 09 76 34",
+            "rating": "5"
+        },
+        {
+            "location": "12 quai Port 13002 Marseille",
+            "name": "Miramar",
+            "number": "04 91 91 41 09",
+            "rating": "5"
+        },
+        {
+            "location": "56 corniche Pr\u00e9s J F Kennedy 13007 Marseille",
+            "name": "Restaurant Peron",
+            "number": "04 91 52 15 22",
+            "rating": "1"
+        },
+        {
+            "location": "b\u00e2t 1 2 rue R\u00e9publique 13001 Marseille",
+            "name": "La Kahena",
+            "number": "04 91 90 61 93",
+            "rating": "2"
+        },
+        {
+            "location": "25 quai Belges 13001 Marseille",
+            "name": "La Brasserie OM",
+            "number": "04 91 33 80 33",
+            "rating": "5"
+        },
+        {
+            "location": "76 boulevard Vauban 13006 Marseille",
+            "name": "Chez Vall\u00e8s",
+            "number": "09 54 05 11 80",
+            "rating": "1"
+        },
+        {
+            "location": "Ens Figaro 20 avenue Bois Luzy 13012 Marseille",
+            "name": "Figaro",
+            "number": "04 91 49 85 54",
+            "rating": "5"
+        },
+        {
+            "location": "35 cours Honor\u00e9 d'Estienne d'Orves 13001 Marseille",
+            "name": "La C\u00f4te De Boeuf",
+            "number": "04 91 33 00 25",
+            "rating": "3"
+        },
+        {
+            "location": "180 rue Rouet 13008 Marseille",
+            "name": "RESTAURANT COLINE FAULQUI",
+            "number": "04 65 85 53 48",
+            "rating": "2"
+        },
+        {
+            "location": "78 avenue 24 Avril 1915 13012 Marseille",
+            "name": "C Thai",
+            "number": "04 65 58 24 81",
+            "rating": "5"
+        },
+        {
+            "location": "355 avenue Prado 13008 Marseille",
+            "name": "Pierrot Coquillages",
+            "number": "04 91 71 97 65",
+            "rating": "3"
+        },
+        {
+            "location": "98 avenue Elsa Triolet 13008 Marseille",
+            "name": "Le Drip's H\u00f4tel & restaurant arty",
+            "number": "04 91 22 96 00",
+            "rating": ""
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "listings": [
+        {
+            "name": "Machoke"
+        },
+        {
+            "name": "Machamp"
+        },
+        {
+            "name": "Bellsprout"
+        },
+        {
+            "name": "Weepinbell"
+        },
+        {
+            "name": "Victreebel"
+        },
+        {
+            "name": "Tentacool"
+        },
+        {
+            "name": "Tentacruel"
+        },
+        {
+            "name": "Geodude"
+        },
+        {
+            "name": "Graveler"
+        },
+        {
+            "name": "Golem"
+        },
+        {
+            "name": "Ponyta"
+        },
+        {
+            "name": "Rapidash"
+        },
+        {
+            "name": "Slowpoke"
+        },
+        {
+            "name": "Slowbro"
+        },
+        {
+            "name": "Magnemite"
+        },
+        {
+            "name": "Magneton"
+        }
+    ]
+}

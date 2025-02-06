@@ -109,11 +109,15 @@ def setup_selenium():
         options.add_argument(option)
 
     # Specify the path to the ChromeDriver
-    service = Service(r"./chromedriver-win64/chromedriver.exe")
+    try:
+        # Specify the path to the ChromeDriver
+        service = Service(r"./chromedriver-win64/chromedriver.exe")
+        driver = webdriver.Chrome(service=service, options=options)
+        return driver
 
-    # Initialize the WebDriver
-    driver = webdriver.Chrome(service=service, options=options)
-    return driver
+    except Exception as e:
+        print(f"❌ WebDriver error: {e}")
+        return None
 
 
 def click_accept_cookies(driver):
@@ -152,6 +156,8 @@ def click_accept_cookies(driver):
 
 
 def fetch_html_selenium(url):
+    if not url.startswith(('http://', 'https://')):
+        raise ValueError("Invalid URL. Must start with http:// or https://")
     driver = setup_selenium()
     try:
         driver.get(url)
