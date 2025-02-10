@@ -1,0 +1,124 @@
+{
+    "listings": [
+        {
+            "address": "51 boulevard Stalingrad 06300 Nice",
+            "name": "Richard ROZENFELD",
+            "phone": "null",
+            "rating": "5"
+        },
+        {
+            "address": "22 boulevard Risso 06300 Nice",
+            "name": "V\u00e9ronique Guerville",
+            "phone": "04 93 56 95 95",
+            "rating": "null"
+        },
+        {
+            "address": "230 avenue Californie 06200 Nice",
+            "name": "Dr Garson Sandrine",
+            "phone": "04 93 14 06 33",
+            "rating": "null"
+        },
+        {
+            "address": "b\u00e2t Les Vallees 22 rue Anatole de Monzie 06300 Nice",
+            "name": "Najib Bachkiri",
+            "phone": "04 93 27 93 30\n06 13 69 78 85",
+            "rating": "5"
+        },
+        {
+            "address": "Hotel Grimaldi 19 boulevard Victor Hugo 06000 Nice",
+            "name": "Docteur David Bouaziz",
+            "phone": "04 93 87 62 37",
+            "rating": "3.7"
+        },
+        {
+            "address": "54 rue Rossini 06000 Nice",
+            "name": "Jean-Joseph Wortman",
+            "phone": "04 93 88 00 13",
+            "rating": "1"
+        },
+        {
+            "address": "50 avenue Jean M\u00e9decin 06000 Nice",
+            "name": "Rose-May Genzone",
+            "phone": "04 93 85 56 41",
+            "rating": "null"
+        },
+        {
+            "address": "10 boulevard Joseph Garnier 06000 Nice",
+            "name": "Jean-Fran\u00e7ois Camuzard",
+            "phone": "04 93 84 08 91",
+            "rating": "null"
+        },
+        {
+            "address": "105 avenue Californie 06200 Nice",
+            "name": "Fabrice Le Barzic",
+            "phone": "04 93 96 45 86",
+            "rating": "5"
+        },
+        {
+            "address": "6 avenue Henry Dunant 06100 Nice",
+            "name": "Mathilde Mourgues",
+            "phone": "04 93 84 65 56",
+            "rating": "null"
+        },
+        {
+            "address": "39 Bis rue Lamartine 06000 Nice",
+            "name": "Consultations 7 Sur 7",
+            "phone": "04 93 01 28 89\n04 92 47 71 90",
+            "rating": "null"
+        },
+        {
+            "address": "r\u00e9sid St Barth\u00e9l\u00e9my 30 boulevard Gorbella 06100 Nice",
+            "name": "Minh Nguyen-Van",
+            "phone": "04 93 52 39 52",
+            "rating": "null"
+        },
+        {
+            "address": "19 Ter rue Fod\u00e9r\u00e9 06300 Nice",
+            "name": "Docs Gilles Gardon Julien Canolle",
+            "phone": "04 93 89 50 07",
+            "rating": "null"
+        },
+        {
+            "address": "E F G E 2 34 avenue St Augustin 06200 Nice",
+            "name": "Marie Gabrielle Bellon Liotard",
+            "phone": "04 93 83 49 99",
+            "rating": "5"
+        },
+        {
+            "address": "193 boulevard Madeleine 06000 Nice",
+            "name": "Alexandre Samak",
+            "phone": "04 93 44 07 86",
+            "rating": "3"
+        },
+        {
+            "address": "b\u00e2t C 15 avenue Bellet 06200 Nice",
+            "name": "BARTHELAT GUILLAUME",
+            "phone": "04 93 86 87 63",
+            "rating": "null"
+        },
+        {
+            "address": "67 boulevard Gorbella 06100 Nice",
+            "name": "Toutel Pierre",
+            "phone": "04 93 51 35 33",
+            "rating": "null"
+        },
+        {
+            "address": "23 rue Comte Vert Am\u00e9d\u00e9e VI 06300 Nice",
+            "name": "SOS M\u00e9decins 06",
+            "phone": "04 93 85 01 01",
+            "rating": "1"
+        },
+        {
+            "address": "62 boulevard Paul Montel 06200 Nice",
+            "name": "C\u00e9line Casta",
+            "phone": "04 93 71 28 05",
+            "rating": "null"
+        },
+        {
+            "address": "8 boulevard Gorbella 06100 Nice",
+            "name": "SEGURET MELINA MARINE MELODIE",
+            "phone": "null",
+            "rating": "null"
+        }
+    ]
+}

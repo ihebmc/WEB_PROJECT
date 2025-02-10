@@ -1,0 +1,142 @@
+{
+    "listings": [
+        {
+            "address": "58 avenue Grammont 37000 Tours",
+            "name": "Sabek Marc",
+            "phone": "06 12 42 91 43",
+            "rating": ""
+        },
+        {
+            "address": "97 rue Ronsard 37100 Tours",
+            "name": "Lima Francisco",
+            "phone": "",
+            "rating": ""
+        },
+        {
+            "address": "13 place Jean Jaur\u00e8s 37000 Tours",
+            "name": "Lise Perchoux",
+            "phone": "02 47 64 36 36",
+            "rating": ""
+        },
+        {
+            "address": "26 rue Roger Salengro 37000 Tours",
+            "name": "Paul Antoine Asselin",
+            "phone": "02 47 20 05 04",
+            "rating": ""
+        },
+        {
+            "address": "14 rue Elise Dreux 37000 Tours",
+            "name": "Antoine Pointout",
+            "phone": "02 47 39 10 00",
+            "rating": ""
+        },
+        {
+            "address": "100 rue Marceau 37000 Tours",
+            "name": "KURYJ VIRGIL JACQUES STANISLAS",
+            "phone": "",
+            "rating": ""
+        },
+        {
+            "address": "15 rue Caulaincourt 37100 Tours",
+            "name": "Cabinet Dentaire Caulaincourt",
+            "phone": "02 47 51 90 96",
+            "rating": ""
+        },
+        {
+            "address": "4 rue Michel Colombe 37000 Tours",
+            "name": "Estelle Favron",
+            "phone": "02 47 05 59 13",
+            "rating": ""
+        },
+        {
+            "address": "8 place Am Querville 37200 Tours",
+            "name": "Richard Lemaire",
+            "phone": "02 47 28 20 40",
+            "rating": ""
+        },
+        {
+            "address": "8 place Am Querville 37200 Tours",
+            "name": "Cabinet Dentaire Kseib&Lemaire",
+            "phone": "02 47 28 20 40",
+            "rating": ""
+        },
+        {
+            "address": "9 rue Bons Enfants 37000 Tours",
+            "name": "GADEAU MARIKA",
+            "phone": "",
+            "rating": ""
+        },
+        {
+            "address": "25 rue Charles Gille 37000 Tours",
+            "name": "Paul Adad",
+            "phone": "02 47 05 28 77",
+            "rating": ""
+        },
+        {
+            "address": "9 rue Bons Enfants 37000 Tours",
+            "name": "GILBERT NICOLAS",
+            "phone": "",
+            "rating": "Au top Personnel tr\u00e8s accueillant, super profes..."
+        },
+        {
+            "address": "17 rue Walvein 37000 Tours",
+            "name": "Alberti-Cayron SCM",
+            "phone": "02 47 37 03 54",
+            "rating": ""
+        },
+        {
+            "address": "9 rue Clocheville 37000 Tours",
+            "name": "EL HAMMOUTI",
+            "phone": "",
+            "rating": ""
+        },
+        {
+            "address": "142 avenue Grammont 37000 Tours",
+            "name": "Karin Van Garderen",
+            "phone": "02 47 66 72 26",
+            "rating": "Chirurgien dentiste \u00e0 l'\u00e9coute,tr\u00e8s douce et co..."
+        },
+        {
+            "address": "42 rue Fuye 37000 Tours",
+            "name": "Julie Roquetani\u00e8re",
+            "phone": "02 47 46 28 11",
+            "rating": ""
+        },
+        {
+            "address": "97 rue Ronsard 37100 Tours",
+            "name": "Docteur Cerqueira",
+            "phone": "02 47 36 04 62",
+            "rating": ""
+        },
+        {
+            "address": "17 rue Walvein 37000 Tours",
+            "name": "Beno\u00e3 T Cayron",
+            "phone": "02 47 37 03 54",
+            "rating": ""
+        },
+        {
+            "address": "2 Bis rue Ste Radegonde 37100 Tours",
+            "name": "GOUTARD HUGO ABEL JEAN",
+            "phone": "",
+            "rating": ""
+        },
+        {
+            "address": "3 place G\u00e9n Leclerc 37000 Tours",
+            "name": "Centre Dentaire Tours - Dentego",
+            "phone": "02 36 93 83 09",
+            "rating": "3.9"
+        },
+        {
+            "address": "60 rue Blaise Pascal 37000 Tours",
+            "name": "Centre Dentaire Blaise Pascal",
+            "phone": "02 47 60 52 40",
+            "rating": "3.3"
+        },
+        {
+            "address": "35 rue Clocheville 37000 Tours",
+            "name": "Thierry Degorce",
+            "phone": "02 47 71 91 92",
+            "rating": "5"
+        }
+    ]
+}

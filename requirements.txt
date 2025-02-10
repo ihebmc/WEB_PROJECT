@@ -14,3 +14,4 @@ groq
 streamlit
 streamlit-tags
 xlsxwriter
+openpyxl

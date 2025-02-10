@@ -1,20 +1,18 @@
-# scraper.py
+#scraper1.py
+
 import os
 import random
 import time
 import re
 import json
 from datetime import datetime
-from typing import List, Dict, Type, Union, Optional
-import numpy as np
+from typing import List, Dict, Type, Tuple
 
 import pandas as pd
 from bs4 import BeautifulSoup
 from pydantic import BaseModel, Field, create_model
 import html2text
 import tiktoken
-from fake_useragent import UserAgent
-import undetected_chromedriver as uc
 
 from dotenv import load_dotenv
 from selenium import webdriver
@@ -24,8 +22,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.keys import Keys
-from selenium.common.exceptions import TimeoutException
 
 from openai import OpenAI
 import google.generativeai as genai
@@ -33,69 +29,12 @@ from groq import Groq
 
 from assets import USER_AGENTS, PRICING, HEADLESS_OPTIONS, SYSTEM_MESSAGE, USER_MESSAGE, LLAMA_MODEL_FULLNAME, \
     GROQ_LLAMA_MODEL_FULLNAME
+import logging
 
 load_dotenv()
 
+
 # Set up the Chrome WebDriver options
-
-class AdvancedSeleniumDriver:
-    def __init__(self):
-        self.ua = UserAgent()
-        self.proxy_list = self.load_proxies()
-
-    def load_proxies(self) -> List[str]:
-        try:
-            with open('proxies.txt', 'r') as f:
-                return [line.strip() for line in f if line.strip()]
-        except FileNotFoundError:
-            return []
-
-    def get_random_proxy(self) -> Optional[str]:
-        return random.choice(self.proxy_list) if self.proxy_list else None
-
-    def setup_undetected_chrome(self) -> uc.Chrome:
-        options = uc.ChromeOptions()
-        options.add_argument('--disable-gpu')
-        options.add_argument('--disable-dev-shm-usage')
-        options.add_argument(f'--user-agent={self.ua.random}')
-
-        proxy = self.get_random_proxy()
-        if proxy:
-            options.add_argument(f'--proxy-server={proxy}')
-
-        return uc.Chrome(options=options)
-
-    def simulate_human_behavior(self, driver):
-        try:
-            total_height = driver.execute_script("return document.body.scrollHeight")
-            viewport_height = driver.execute_script("return window.innerHeight")
-            current_position = 0
-
-            while current_position < total_height:
-                scroll_amount = random.randint(100, 400)
-                current_position += scroll_amount
-                driver.execute_script(f"window.scrollTo({{top: {current_position}, behavior: 'smooth'}})")
-                time.sleep(random.uniform(0.5, 2.0))
-
-                action = ActionChains(driver)
-                for _ in range(random.randint(2, 5)):
-                    x = random.randint(0, driver.execute_script("return window.innerWidth"))
-                    y = random.randint(0, viewport_height)
-                    action.move_by_offset(x, y)
-                    action.perform()
-                    time.sleep(random.uniform(0.1, 0.3))
-
-        except Exception as e:
-            print(f"Error in human behavior simulation: {str(e)}")
-
-    def handle_cloudflare(self, driver):
-        try:
-            WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.ID, "challenge-form"))
-            )
-            time.sleep(random.uniform(5, 10))
-        except TimeoutException:
-            pass
 
 def setup_selenium():
     options = Options()
@@ -109,15 +48,11 @@ def setup_selenium():
         options.add_argument(option)
 
     # Specify the path to the ChromeDriver
-    try:
-        # Specify the path to the ChromeDriver
-        service = Service(r"./chromedriver-win64/chromedriver.exe")
-        driver = webdriver.Chrome(service=service, options=options)
-        return driver
+    service = Service(r"./chromedriver-win64/chromedriver.exe")
 
-    except Exception as e:
-        print(f"❌ WebDriver error: {e}")
-        return None
+    # Initialize the WebDriver
+    driver = webdriver.Chrome(service=service, options=options)
+    return driver
 
 
 def click_accept_cookies(driver):
@@ -156,8 +91,6 @@ def click_accept_cookies(driver):
 
 
 def fetch_html_selenium(url):
-    if not url.startswith(('http://', 'https://')):
-        raise ValueError("Invalid URL. Must start with http:// or https://")
     driver = setup_selenium()
     try:
         driver.get(url)
@@ -170,10 +103,12 @@ def fetch_html_selenium(url):
         # click_accept_cookies(driver)
 
         # Add more realistic actions like scrolling
-        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        time.sleep(2)  # Simulate time taken to scroll and read
-        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        time.sleep(1)
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight/2);")
+        time.sleep(random.uniform(1.1, 1.8))  # Simulate time taken to scroll and read
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight/1.2);")
+        time.sleep(random.uniform(1.1, 1.8))
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight/1);")
+        time.sleep(random.uniform(1.1, 2.1))
         html = driver.page_source
         return html
     finally:
@@ -201,12 +136,17 @@ def html_to_markdown_with_readability(html_content):
     return markdown_content
 
 
-def save_raw_data(raw_data, timestamp, output_folder='output'):
-    # Ensure the output folder exists
-    os.makedirs(output_folder, exist_ok=True)
+def save_raw_data(raw_data: str, output_folder: str, file_name: str):
+    """
+    Save raw markdown data to the specified output folder.
 
-    # Save the raw markdown data with timestamp in filename
-    raw_output_path = os.path.join(output_folder, f'rawData_{timestamp}.md')
+    Args:
+        raw_data (str): The raw markdown content to save
+        output_folder (str): The folder path where to save the file
+        file_name (str): The name of the file to save
+    """
+    os.makedirs(output_folder, exist_ok=True)
+    raw_output_path = os.path.join(output_folder, file_name)
     with open(raw_output_path, 'w', encoding='utf-8') as f:
         f.write(raw_data)
     print(f"Raw data saved to {raw_output_path}")
@@ -236,13 +176,21 @@ def remove_urls_from_file(file_path):
 
 
 def create_dynamic_listing_model(field_names: List[str]) -> Type[BaseModel]:
+    """
+    Dynamically creates a Pydantic model based on provided fields.
+    field_name is a list of names of the fields to extract from the markdown.
+    """
+    # Create field definitions using aliases for Field parameters
     field_definitions = {field: (str, ...) for field in field_names}
+    # Dynamically create the model with all field
     return create_model('DynamicListingModel', **field_definitions)
 
 
 def create_listings_container_model(listing_model: Type[BaseModel]) -> Type[BaseModel]:
+    """
+    Create a container model that holds a list of the given listing model.
+    """
     return create_model('DynamicListingsContainer', listings=(List[listing_model], ...))
-
 
 
 def trim_to_token_limit(text, model, max_tokens=120000):
@@ -292,194 +240,362 @@ def generate_system_message(listing_model: BaseModel) -> str:
 
 
 def format_data(data, DynamicListingsContainer, DynamicListingModel, selected_model):
-    token_counts = {}
+    """
+    Format and extract data with improved extraction quality and specific parsing rules.
+    """
+    token_counts = {"input_tokens": 0, "output_tokens": 0}
 
-    if selected_model in ["gpt-4o-mini", "gpt-4o-2024-08-06"]:
-        client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
-        completion = client.beta.chat.completions.parse(
-            model=selected_model,
-            messages=[
-                {"role": "system", "content": SYSTEM_MESSAGE},
-                {"role": "user", "content": USER_MESSAGE + data},
-            ],
-            response_format=DynamicListingsContainer
-        )
-        encoder = tiktoken.encoding_for_model(selected_model)
-        input_token_count = len(encoder.encode(USER_MESSAGE + data))
-        output_token_count = len(encoder.encode(json.dumps(completion.choices[0].message.parsed.dict())))
-        token_counts = {
-            "input_tokens": input_token_count,
-            "output_tokens": output_token_count
-        }
-        return completion.choices[0].message.parsed, token_counts
+    # Enhanced system message with specific extraction rules
+    sys_message = """
+    You are a specialized data extraction system for business listings. Extract the following fields with these specific rules:
 
-    elif selected_model == "gemini-1.5-flash":
-        genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
-        model = genai.GenerativeModel('gemini-1.5-flash',
-                                      generation_config={
-                                          "response_mime_type": "application/json",
-                                          "response_schema": DynamicListingsContainer
-                                      })
-        prompt = SYSTEM_MESSAGE + "\n" + USER_MESSAGE + data
-        input_tokens = model.count_tokens(prompt)
-        completion = model.generate_content(prompt)
-        usage_metadata = completion.usage_metadata
-        token_counts = {
-            "input_tokens": usage_metadata.prompt_token_count,
-            "output_tokens": usage_metadata.candidates_token_count
-        }
-        return completion.text, token_counts
+    1. Name (nom):
+    - Look for business names typically at the start of each listing
+    - Include full business name including any legal forms (SARL, SA, etc.)
 
-    elif selected_model in ["Llama3.1 8B", "Groq Llama3.1 70b"]:
-        sys_message = generate_system_message(DynamicListingModel)
+    2. Address (adresse):
+    - Extract complete address including street number, name, postal code, and city
+    - Look for patterns like "[number] rue/avenue/boulevard" followed by postal code
+    - In PagesJaunes, addresses often appear after the business name and before contact info
 
-        if selected_model == "Llama3.1 8B":
+    3. Phone (téléphone):
+    - Look for number patterns like "01 23 45 67 89" or "01.23.45.67.89"
+    - Phone numbers are often preceded by "Tél :" or "Téléphone :"
+    - Mobile numbers may start with 06 or 07
+
+    4. Rating:
+    - Look for numerical ratings, typically from 1-5 stars
+    - Check for patterns like "X,X/5" or "X,X étoiles"
+    - Convert any rating to a 0-5 scale if different
+
+    5. Category:
+    - Extract business category/type
+    - Look for descriptive terms of business activity
+    - Categories often appear in metadata or business descriptions
+
+    Important:
+    - NEVER leave fields empty if the information exists in the text
+    - If information truly isn't found, use an empty string
+    - Extract ALL text that could be relevant for each field
+    - Pay special attention to French address formats and phone numbers
+    - Look for information in both visible text and metadata/HTML attributes
+
+    Return the data in this exact format:
+    {
+        "listings": [
+            {
+                "name": "exact business name",
+                "address": "complete address",
+                "phone": "formatted phone number",
+                "rating": "numerical rating",
+                "category": "business category"
+            }
+        ]
+    }
+    """
+
+    try:
+        if selected_model == "gemini-1.5-flash":
+            try:
+                api_key = os.getenv("GOOGLE_API_KEY")
+                if not api_key:
+                    raise ValueError("Google API key not found in environment variables")
+
+                genai.configure(api_key=api_key)
+                model = genai.GenerativeModel('gemini-1.5-flash',
+                                              generation_config={
+                                                  "response_mime_type": "application/json",
+                                                  "response_schema": DynamicListingsContainer,
+                                                  "temperature": 0.1  # Lower temperature for more precise extraction
+                                              })
+
+                # Preprocess the data to highlight structure
+                preprocessed_data = f"""
+                Please extract business information from the following content. 
+                Pay special attention to French address formats and ensure all available information is captured:
+
+                {data}
+
+                Remember to extract:
+                - Full business names
+                - Complete addresses with postal codes
+                - All phone numbers
+                - Any ratings (typically X/5 or X,X/5)
+                - Business categories/types
+                """
+
+                completion = model.generate_content(preprocessed_data)
+                usage_metadata = completion.usage_metadata
+                token_counts = {
+                    "input_tokens": usage_metadata.prompt_token_count,
+                    "output_tokens": usage_metadata.candidates_token_count
+                }
+
+                try:
+                    parsed_data = json.loads(completion.text)
+                    cleaned_data = {"listings": []}
+
+                    for listing in parsed_data.get("listings", []):
+                        cleaned_listing = {}
+
+                        # Enhanced cleaning and validation for each field
+                        for field in ["name", "address", "phone", "rating", "category"]:
+                            value = listing.get(field, "").strip()
+
+                            # Field-specific cleaning
+                            if field == "phone":
+                                # Clean and format phone numbers
+                                value = re.sub(r'[^\d\s+]', '', value)
+                                if value:
+                                    # Format as XX XX XX XX XX
+                                    value = ' '.join(re.findall(r'\d{2}', value))
+
+                            elif field == "rating":
+                                # Convert rating to numerical format
+                                if value:
+                                    try:
+                                        # Handle both X,X and X.X formats
+                                        value = value.replace(',', '.')
+                                        rating = float(re.search(r'\d+\.?\d*', value).group())
+                                        value = f"{rating:.1f}"
+                                    except:
+                                        value = ""
+
+                            elif field == "address":
+                                # Ensure address has postal code
+                                if value and not re.search(r'\d{5}', value):
+                                    # Look for postal code in original data near this address
+                                    postal_codes = re.findall(r'\b\d{5}\b', data)
+                                    if postal_codes:
+                                        value = f"{value} {postal_codes[0]}"
+
+                            cleaned_listing[field] = value
+
+                        # Only add listing if it has at least a name or address
+                        if cleaned_listing["name"] or cleaned_listing["address"]:
+                            cleaned_data["listings"].append(cleaned_listing)
+
+                    return cleaned_data, token_counts
+
+                except json.JSONDecodeError as e:
+                    logging.error(f"Failed to parse Gemini response: {e}")
+                    return {"listings": []}, token_counts
+
+            except Exception as e:
+                logging.error(f"Error with Gemini model: {str(e)}")
+                return {"listings": []}, token_counts
+
+        elif selected_model == "Llama3.1 8B":
             client = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")
             completion = client.chat.completions.create(
                 model=LLAMA_MODEL_FULLNAME,
                 messages=[
                     {"role": "system", "content": sys_message},
-                    {"role": "user", "content": USER_MESSAGE + data}
+                    {"role": "user", "content": data}
                 ],
                 temperature=0.7,
             )
+
+            response_content = completion.choices[0].message.content.strip()
+            try:
+                parsed_data = json.loads(response_content)
+                # Apply the same cleaning logic
+                cleaned_data = {"listings": []}
+                for listing in parsed_data.get("listings", []):
+                    cleaned_listing = {}
+                    for field in ["name", "address", "phone", "rating", "category"]:
+                        value = listing.get(field, "")
+                        cleaned_listing[field] = "" if value == "string" else str(value)
+                    cleaned_data["listings"].append(cleaned_listing)
+                return cleaned_data, {
+                    "input_tokens": completion.usage.prompt_tokens,
+                    "output_tokens": completion.usage.completion_tokens
+                }
+            except json.JSONDecodeError:
+                return {"listings": []}, {
+                    "input_tokens": completion.usage.prompt_tokens,
+                    "output_tokens": completion.usage.completion_tokens
+                }
+
+
         else:
-            client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
-            completion = client.chat.completions.create(
-                messages=[
-                    {"role": "system", "content": sys_message},
-                    {"role": "user", "content": USER_MESSAGE + data}
-                ],
-                model=GROQ_LLAMA_MODEL_FULLNAME,
-            )
-
-        response_content = completion.choices[0].message.content
-        parsed_response = json.loads(response_content)
-        token_counts = {
-            "input_tokens": completion.usage.prompt_tokens,
-            "output_tokens": completion.usage.completion_tokens
-        }
-        return parsed_response, token_counts
-
-    else:
-        raise ValueError(f"Unsupported model: {selected_model}")
+            raise ValueError(f"Unsupported model: {selected_model}")
+    except Exception as e:
+        logging.error(f"Error in format_data: {str(e)}")
+        return {"listings": []}, {"input_tokens": 0, "output_tokens": 0}
 
 
-def save_formatted_data(formatted_data, timestamp, output_folder='output'):
+def validate_listing_data(listing):
+    """
+    Validate and clean individual listing data.
+    """
+    required_fields = ["name", "address", "phone", "rating", "category"]
+    cleaned_listing = {}
+
+    for field in required_fields:
+        value = listing.get(field, "")
+        # Clean and validate the value
+        if value == "string" or value is None:
+            cleaned_listing[field] = ""
+        else:
+            # Convert to string and strip whitespace
+            cleaned_listing[field] = str(value).strip()
+
+    return cleaned_listing
+
+
+def save_formatted_data(formatted_data, output_folder: str, json_file_name: str, excel_file_name: str):
+    """Save formatted data as JSON and Excel in the specified output folder."""
     os.makedirs(output_folder, exist_ok=True)
 
+    # Parse the formatted data if it's a JSON string (from Gemini API)
     if isinstance(formatted_data, str):
         try:
             formatted_data_dict = json.loads(formatted_data)
         except json.JSONDecodeError:
-            raise ValueError("Invalid JSON string provided")
+            raise ValueError("The provided formatted data is a string but not valid JSON.")
     else:
+        # Handle data from OpenAI or other sources
         formatted_data_dict = formatted_data.dict() if hasattr(formatted_data, 'dict') else formatted_data
 
-    # Save JSON
-    json_output_path = os.path.join(output_folder, f'sorted_data_{timestamp}.json')
+    # Save the formatted data as JSON
+    json_output_path = os.path.join(output_folder, json_file_name)
     with open(json_output_path, 'w', encoding='utf-8') as f:
         json.dump(formatted_data_dict, f, indent=4)
+    print(f"Formatted data saved to JSON at {json_output_path}")
 
-    # Prepare DataFrame
+    # Prepare data for DataFrame
     if isinstance(formatted_data_dict, dict):
+        # If the data is a dictionary containing lists, assume these lists are records
         data_for_df = next(iter(formatted_data_dict.values())) if len(formatted_data_dict) == 1 else formatted_data_dict
     elif isinstance(formatted_data_dict, list):
         data_for_df = formatted_data_dict
     else:
-        raise ValueError("Invalid data format for DataFrame conversion")
+        raise ValueError("Formatted data is neither a dictionary nor a list, cannot convert to DataFrame")
 
+    # Create DataFrame
     try:
         df = pd.DataFrame(data_for_df)
+        print("DataFrame created successfully.")
 
-        # Save Excel with enhanced formatting
-        excel_output_path = os.path.join(output_folder, f'sorted_data_{timestamp}.xlsx')
-        writer = pd.ExcelWriter(excel_output_path, engine='xlsxwriter')
+        # Save the DataFrame to an Excel file
+        excel_output_path = os.path.join(output_folder, excel_file_name)
+        df.to_excel(excel_output_path, index=False)
+        print(f"Formatted data saved to Excel at {excel_output_path}")
 
-        df.to_excel(writer, sheet_name='Scraped Data', index=False)
-
-        # Get workbook and worksheet
-        workbook = writer.book
-        worksheet = writer.sheets['Scraped Data']
-
-        # Add formats
-        header_format = workbook.add_format({
-            'bold': True,
-            'fg_color': '#D7E4BC',
-            'border': 1,
-            'text_wrap': True
-        })
-
-        data_format = workbook.add_format({
-            'border': 1,
-            'text_wrap': True
-        })
-
-        # Format headers
-        for col_num, value in enumerate(df.columns.values):
-            worksheet.write(0, col_num, value, header_format)
-            max_length = max(df[value].astype(str).str.len().max(), len(value))
-            worksheet.set_column(col_num, col_num, max_length + 2)
-
-        # Format data cells
-        for row_num in range(len(df)):
-            for col_num in range(len(df.columns)):
-                worksheet.write(row_num + 1, col_num, df.iloc[row_num, col_num], data_format)
-
-        writer.close()
         return df
-
     except Exception as e:
-        print(f"Error in Excel export: {str(e)}")
+        print(f"Error creating DataFrame or saving Excel: {str(e)}")
         return None
 
 
 def calculate_price(token_counts, model):
     input_token_count = token_counts.get("input_tokens", 0)
     output_token_count = token_counts.get("output_tokens", 0)
+
+    # Calculate the costs
     input_cost = input_token_count * PRICING[model]["input"]
     output_cost = output_token_count * PRICING[model]["output"]
     total_cost = input_cost + output_cost
+
     return input_token_count, output_token_count, total_cost
 
 
-if __name__ == "__main__":
-    url = 'https://webscraper.io/test-sites/e-commerce/static'
-    fields = ['Name of item', 'Price']
+def generate_unique_folder_name(url):
+    """
+    Generate a unique folder name based on URL and timestamp.
 
-    try:
-        # # Generate timestamp
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    Args:
+        url (str): The URL to process
 
-        # Scrape data
+    Returns:
+        str: A unique folder name combining domain name and timestamp
+    """
+    timestamp = datetime.now().strftime('%Y_%m_%d__%H_%M_%S')
+    url_name = re.sub(r'\W+', '_',
+                      url.split('//')[1].split('/')[0])  # Extract domain name and replace non-alphanumeric characters
+    return f"{url_name}_{timestamp}"
+
+
+def scrape_multiple_urls(urls, fields, selected_model):
+    """
+    Scrape multiple URLs in sequence and aggregate their results.
+
+    Args:
+        urls (list): List of URLs to scrape
+        fields (list): Fields to extract from each URL
+        selected_model (str): The model to use for extraction
+
+    Returns:
+        tuple: (output_folder, total_input_tokens, total_output_tokens, total_cost, all_data, markdown)
+    """
+    output_folder = os.path.join('output', generate_unique_folder_name(urls[0]))
+    os.makedirs(output_folder, exist_ok=True)
+
+    total_input_tokens = 0
+    total_output_tokens = 0
+    total_cost = 0
+    all_data = []
+    markdown = None  # We'll store the markdown for the first (or only) URL
+
+    for i, url in enumerate(urls, start=1):
         raw_html = fetch_html_selenium(url)
+        current_markdown = html_to_markdown_with_readability(raw_html)
+        if i == 1:
+            markdown = current_markdown  # Store markdown for the first URL
 
-        markdown = html_to_markdown_with_readability(raw_html)
+        input_tokens, output_tokens, cost, formatted_data = scrape_url(url, fields, selected_model, output_folder, i,
+                                                                       current_markdown)
+        total_input_tokens += input_tokens
+        total_output_tokens += output_tokens
+        total_cost += cost
+        all_data.append(formatted_data)
 
-        # Save raw data
-        save_raw_data(markdown, timestamp)
+    return output_folder, total_input_tokens, total_output_tokens, total_cost, all_data, markdown
 
-        # Create the dynamic listing model
+
+def scrape_url(url: str, fields: list, model_selection: str, output_folder: str, page_index: int,
+               markdown: str = None) -> Tuple[int, int, float, dict]:
+    """
+    Scrape a single URL with improved data validation.
+    """
+    try:
+        if markdown is None:
+            raw_html = fetch_html_selenium(url)
+            markdown = html_to_markdown_with_readability(raw_html)
+
+        save_raw_data(markdown, output_folder, f'raw_data_page_{page_index}.md')
+
         DynamicListingModel = create_dynamic_listing_model(fields)
-
-        # Create the container model that holds a list of the dynamic listing models
         DynamicListingsContainer = create_listings_container_model(DynamicListingModel)
 
-        # Format data
-        formatted_data, token_counts = format_data(markdown, DynamicListingsContainer, DynamicListingModel,
-                                                   "Groq Llama3.1 70b")  # Use markdown, not raw_html
-        print(formatted_data)
-        # Save formatted data
-        save_formatted_data(formatted_data, timestamp)
+        formatted_data, tokens_count = format_data(markdown, DynamicListingsContainer,
+                                                   DynamicListingModel, model_selection)
 
-        # Convert formatted_data back to text for token counting
-        formatted_data_text = json.dumps(formatted_data.dict() if hasattr(formatted_data, 'dict') else formatted_data)
+        # Ensure proper data structure and clean the data
+        if isinstance(formatted_data, str):
+            try:
+                formatted_data = json.loads(formatted_data)
+            except json.JSONDecodeError:
+                formatted_data = {"listings": []}
 
-        # Automatically calculate the token usage and cost for all input and output
-        input_tokens, output_tokens, total_cost = calculate_price(token_counts, "Groq Llama3.1 70b")
-        print(f"Input token count: {input_tokens}")
-        print(f"Output token count: {output_tokens}")
-        print(f"Estimated total cost: ${total_cost:.4f}")
+        if not isinstance(formatted_data, dict):
+            formatted_data = {"listings": []}
+
+        # Clean and validate each listing
+        cleaned_listings = []
+        for listing in formatted_data.get("listings", []):
+            cleaned_listing = validate_listing_data(listing)
+            cleaned_listings.append(cleaned_listing)
+
+        formatted_data = {"listings": cleaned_listings}
+
+        input_tokens, output_tokens, cost = calculate_price(tokens_count, model=model_selection)
+        return input_tokens, output_tokens, cost, formatted_data
 
     except Exception as e:
-        print(f"An error occurred: {e}")
+        logging.error(f"Error scraping URL {url}: {str(e)}")
+        return 0, 0, 0, {"listings": []}
+
+
+

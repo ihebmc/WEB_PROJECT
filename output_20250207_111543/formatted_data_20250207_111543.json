@@ -1,0 +1,144 @@
+{
+    "listings": [
+        {
+            "address": "12 impasse Hippodrome 31100 Toulouse",
+            "category": "Maison de retraite m\u00e9dicalis\u00e9e",
+            "name": "Domusvi R\u00e9sidence de l'\u00e9cuyer",
+            "phone": "05 33 06 10 32",
+            "rating": "1 __________ (3 avis)"
+        },
+        {
+            "address": "Medicis Dolcea Asc 2 163 avenue Etats Unis 31200 Toulouse",
+            "category": "Maison de retraite m\u00e9dicalis\u00e9e",
+            "name": "Domusvi R\u00e9sidence Nouvelle-Orl\u00e9ans",
+            "phone": "05 33 06 09 60",
+            "rating": ""
+        },
+        {
+            "address": "55 avenue Louis Br\u00e9guet 31400 Toulouse",
+            "category": "Maison de retraite m\u00e9dicalis\u00e9e",
+            "name": "Domusvi R\u00e9sidence Henri IV",
+            "phone": "05 33 06 10 37",
+            "rating": ""
+        },
+        {
+            "address": "R\u00e9sidence les Tilleuls 19 rue Varsovie 31300 Toulouse",
+            "category": "Maison de retraite, foyer-logement public",
+            "name": "RESIDENCE LES TILLEULS",
+            "phone": "05 61 77 35 81",
+            "rating": "3.5 __________ (2 avis)"
+        },
+        {
+            "address": "1 rue Albert Carovis 31100 Toulouse",
+            "category": "Maison de retraite priv\u00e9e",
+            "name": "Maison de retraite Tibaous",
+            "phone": "05 62 13 41 34",
+            "rating": ""
+        },
+        {
+            "address": "87 chemin Lapujade 31200 Toulouse",
+            "category": "Maison de retraite, foyer-logement public",
+            "name": "R\u00e9sidence Services Seniors DOMITYS - Les Pagelles",
+            "phone": "05 32 26 03 00",
+            "rating": ""
+        },
+        {
+            "address": "3 avenue James Clerk Maxwell 31100 Toulouse",
+            "category": "Maison de retraite priv\u00e9e",
+            "name": "R\u00e9sidence Le Clos d'Eug\u00e9nie",
+            "phone": "05 34 31 21 90",
+            "rating": "5 __________ (1 avis)"
+        },
+        {
+            "address": "28 all\u00e9e Jules Guesde 31000 Toulouse",
+            "category": "Maison de retraite priv\u00e9e",
+            "name": "Plenitude Saint Michel",
+            "phone": "05 61 32 15 15",
+            "rating": ""
+        },
+        {
+            "address": "5 rue Bobillot 31200 Toulouse",
+            "category": "Maison de retraite, foyer-logement public",
+            "name": "EHPAD Les Minimes",
+            "phone": "05 34 40 47 00",
+            "rating": ""
+        },
+        {
+            "address": "4 rue Arthur Rimbaud 31200 Toulouse",
+            "category": "Maison de retraite priv\u00e9e",
+            "name": "Colis\u00e9e R\u00e9sidence Marguerite",
+            "phone": "05 34 40 96 96",
+            "rating": ""
+        },
+        {
+            "address": "15 impasse Cadene 31200 Toulouse",
+            "category": "Maison de retraite m\u00e9dicalis\u00e9e",
+            "name": "Domaine de La Cad\u00e8ne",
+            "phone": "05 61 13 73 27",
+            "rating": ""
+        },
+        {
+            "address": "5 rue Gallois 31400 Toulouse",
+            "category": "Maison de retraite, foyer-logement public",
+            "name": "E.P.H.A.D Le Repos CCAS",
+            "phone": "05 34 31 88 00",
+            "rating": ""
+        },
+        {
+            "address": "100 avenue Crampel 31400 Toulouse",
+            "category": "Maison de retraite m\u00e9dicalis\u00e9e",
+            "name": "R\u00e9sidence Crampel - emeis",
+            "phone": "05 62 19 37 00\n05 62 19 37 02",
+            "rating": "2 avis"
+        },
+        {
+            "address": "366 route Launaguet 31200 Toulouse",
+            "category": "Maison de retraite priv\u00e9e",
+            "name": "Les Buissonnets",
+            "phone": "Oppos\u00e9 aux op\u00e9rations de marketing 05 61 37 74 74",
+            "rating": "1 avis"
+        },
+        {
+            "address": "Ehpad 28 rue Ste Lucie 31300 Toulouse",
+            "category": "Maison de retraite, foyer-logement public",
+            "name": "EHPAH Gaubert",
+            "phone": "05 34 56 24 09",
+            "rating": ""
+        },
+        {
+            "address": "rue Poutier 31100 Toulouse",
+            "category": "Maison de retraite priv\u00e9e",
+            "name": "R\u00e9sidence Le Bois Vert",
+            "phone": "05 61 15 83 00",
+            "rating": ""
+        },
+        {
+            "address": "Quartier Croix Daurade 89 chemin de Lanusse 31200 Toulouse",
+            "category": "Maison de retraite m\u00e9dicalis\u00e9e",
+            "name": "R\u00e9sidence Domaine De Borderouge - emeis",
+            "phone": "05 34 30 44 44",
+            "rating": ""
+        },
+        {
+            "address": "92 avenue Casselardit 31300 Toulouse",
+            "category": "Maison de retraite, foyer-logement public",
+            "name": "R\u00e9sidence Les Fontaines CCAS",
+            "phone": "05 34 50 80 00",
+            "rating": ""
+        },
+        {
+            "address": "36 boulevard Jean Brunhes 31300 Toulouse",
+            "category": "Maison de retraite priv\u00e9e",
+            "name": "Maison de retraite Edenis La Pastelli\u00e8re",
+            "phone": "05 82 08 15 07",
+            "rating": ""
+        },
+        {
+            "address": "13 avenue L\u00e9on Blum 31500 Toulouse",
+            "category": "Maison de retraite m\u00e9dicalis\u00e9e",
+            "name": "R\u00e9sidence Marengo - emeis",
+            "phone": "05 34 25 06 97",
+            "rating": ""
+        }
+    ]
+}

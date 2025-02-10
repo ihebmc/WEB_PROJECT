@@ -1,0 +1,25 @@
+{
+    "listings": [
+        {
+            "address": "13 traverse Magnan 13003 Marseille",
+            "category": "minoteries, meuneries",
+            "name": "Grands Moulins Storione",
+            "phone": "04 96 13 31 03",
+            "rating": ""
+        },
+        {
+            "address": "4 chemin Littoral 13002 Marseille",
+            "category": "minoteries, meuneries",
+            "name": "Panzani",
+            "phone": "04 91 87 61 90",
+            "rating": ""
+        },
+        {
+            "address": "chemin Vaneu 13480 Cabri\u00e8s",
+            "category": "minoteries, meuneries",
+            "name": "Moulin Ceard - d\u00e9p\u00f4t de Cabri\u00e8s",
+            "phone": "04 92 43 05 05",
+            "rating": "5"
+        }
+    ]
+}
